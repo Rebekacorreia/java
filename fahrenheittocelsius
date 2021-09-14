@@ -1,0 +1,20 @@
+package fundamentos;
+
+import java.util.Scanner;
+
+public class AreaCircunferencia {
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+    //30 °C × 9/5) + 32 = 86 °F
+		int i = 32;
+		double j = 1.8;
+		
+		System.out.println("Digite o valor em fahrenheit: ");
+		int f = scanner.nextInt();
+		double converter = (f * j) + 32; 
+		System.out.println("O valor " + f +"c para fahrenheit é: " + converter);
+		
+		
+	}
+}
