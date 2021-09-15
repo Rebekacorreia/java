@@ -1,0 +1,31 @@
+package exer;
+
+import java.util.Scanner;
+
+public class Semana {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Escreva o nome do dia da semana:");
+		String s = scanner.next();
+		
+		if(s.equalsIgnoreCase("domingo") ) {
+			System.out.println("Domingo é o primeiro dia da semana");
+		} else if (s.equalsIgnoreCase("segunda")) {
+			System.out.println("Segunda é o segundo dia da semana");
+		} else if (s.equalsIgnoreCase("terça")) {
+			System.out.println("Terça é o terceiro dia da semana");
+		} else if (s.equalsIgnoreCase("quarta")) {
+			System.out.println("Quarta é o quarto dia da semana");
+		} else if (s.equalsIgnoreCase("quinta")) {
+			System.out.println("Quinta é o quinto dia da semana");
+		}else if (s.equalsIgnoreCase("sexta")) {
+			System.out.println("Sexta é o sexto dia da semana");
+		}else if (s.equalsIgnoreCase("sábado") || s.equalsIgnoreCase("sabado")) {
+			System.out.println("Sábado é o sétimo dia da semana");
+		} else 
+			System.out.println("Palavra inválida");
+		
+		scanner.close();
+	}
+}
