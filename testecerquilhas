@@ -1,0 +1,15 @@
+package exer;
+
+
+public class Teste {
+	public static void main(String[] args) {
+		
+		String valor = "#";
+		for(String j = "#"; !j.equals("######") ; j+="#") {
+			System.out.println(valor);
+			valor += "#";
+			
+		}
+		
+	}
+}
