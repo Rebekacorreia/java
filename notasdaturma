@@ -1,0 +1,31 @@
+package exer;
+
+import java.util.Scanner;
+
+public class Matriz {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Quantos alunos na turma?");
+		int quantAlunos = scanner.nextInt();
+		
+		System.out.println("Quantas notas por aluno?");
+		int quantNotaPorAluno = scanner.nextInt();
+		
+		double [][] notas = new double[quantAlunos][quantNotaPorAluno];
+		
+		double total = 0;
+		for (int a = 0; a < notas.length; a++) {
+			for (int n = 0; n < notas[a].length; n++) {
+				System.out.printf("Informe a nota %d do aluno %d: ", n + 1, a + 1);
+				notas[a][n] = scanner.nextDouble();
+				total += notas[a][n];
+			}
+		}
+		
+		double media = total/ (quantAlunos * quantNotaPorAluno);
+		System.out.println("Média da turma é:" + media);
+		
+		scanner.close();
+	}
+}
