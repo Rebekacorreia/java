@@ -1,0 +1,20 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class TestesXava {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Soma com dois números inteiros:");
+        int a, b, soma;
+        a = scanner.nextInt();
+        b = scanner.nextInt();
+
+        soma = a + b;
+        System.out.println(soma);
+
+        scanner.close();
+
+    }
+}
