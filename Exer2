@@ -1,0 +1,29 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class TestesXava {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Insira a largura do terreno:");
+        double x, y, metroq;
+        x = scanner.nextDouble();
+
+        System.out.println("Insira o comprimento do terreno:");
+        y = scanner.nextDouble();
+
+        System.out.println("Insira o valor do metro quadrado do terreno:");
+        metroq = scanner.nextDouble();
+
+        double area, preco;
+        area = x * y;
+        preco = area * metroq;
+
+        System.out.printf("A área do terreno é de: %.2f%n", area);
+        System.out.printf("O preço do terreno é de: R$%.2f%n", preco);
+
+        scanner.close();
+
+    }
+}
