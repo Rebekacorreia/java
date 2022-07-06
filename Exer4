@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class TestesXava {
+    public static void main(String[] args) {
+        int a, b, res;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o primeiro número inteiro:");
+        a =  scanner.nextInt();
+
+        System.out.println("Digite o segundo número inteiro:");
+        b = scanner.nextInt();
+        res = a + b;
+
+        System.out.println("A soma dos valores é:" + res);
+        scanner.close();
+
+    }
+}
