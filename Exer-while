@@ -5,7 +5,7 @@ public class TestesXava {
 
         Scanner scanner = new Scanner(System.in);
         int senha = scanner.nextInt();
-        
+         
         while( senha != 2002){
             System.out.println("Senha incorreta! Tente novamente:");
             senha = scanner.nextInt();
