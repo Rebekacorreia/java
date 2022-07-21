@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class TestesXava {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int alc = 0, gas = 0, disel = 0;
+
+        System.out.println("Vote: 1.Álcool 2.Gasolina 3.Diesel 4.sair");
+        int v = scanner.nextInt();
+
+        while( v >= 1 && v <=3){
+            if (v == 1){
+                alc++;
+            } else if (v == 2) {
+                gas += 1;
+            } else if (v==3) {
+                disel++;
+            }
+            v = scanner.nextInt();
+        }
+                System.out.println("Muito obrigado pelo seu voto! Resultados da votação:" +
+  
