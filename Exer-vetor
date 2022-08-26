@@ -1,0 +1,50 @@
+package aplicacao;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Vector {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Quantas pessoas deseja declarar? ");
+        int n = scanner.nextInt();
+        String[] name = new String[n];
+        int[] age = new int[n];
+        double[] height = new double[n];
+
+        for (int i=0; i<n; i++){
+            System.out.println("Digite os dados da " + (i+1) + " pessoa:");
+            System.out.print("Nome:");
+            name[i] = scanner.next();
+            System.out.print("Idade: ");
+            age[i]= scanner.nextInt();
+            System.out.print("Altura: ");
+            height[i]= scanner.nextDouble();
+        }
+
+        double sum =0.0;
+        for (int i=0; i<n; i++){
+            sum = sum + height[i];
+        }
+        double average = sum / n;
+
+        double percent = 0;
+        for (int i=0; i<n; i++){
+            if (age[i] < 16){
+            percent = i+1;
+            }
+        }
+        double total = percent * 100.0 / n;
+
+        System.out.printf("Altura média: %.2f%n", average);
+        System.out.printf("Média de pessoas com menos de 16 anos: %.1f%%%n ",total);
+        for (int i=0; i<n; i++){
+            if (age[i] < 16){
+                System.out.println(name[i]);
+            }
+        }
+        scanner.close();
+    }
+}
