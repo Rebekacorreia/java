@@ -1,0 +1,39 @@
+package aplicacao;
+
+import entidades.Settings;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Alugo {
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Quantes pessoas querem fazer o check-in?");
+        int n = scanner.nextInt();
+        Settings[] qrt = new Settings[10];
+
+        for (int i=1; i<=n; i++){
+            System.out.println("Check in número " + i);
+            System.out.println("Nome do hóspede:");
+            scanner.nextLine();
+            String nome = scanner.nextLine();
+            System.out.println("Email para contato:");
+            String email = scanner.next();
+            System.out.println("Insira o quarto reservado:");
+            int quarto= scanner.nextInt();
+
+            qrt[quarto] = new Settings(nome, email);
+        }
+
+        System.out.println("Quartos ocupados:");
+        for (int i=0; i<10; i++){
+            if (qrt[i] != null){
+                System.out.println(i + ": " +  qrt[i]);
+            }
+        }
+
+        scanner.close();
+    }
+}
