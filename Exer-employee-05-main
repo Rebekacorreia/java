@@ -20,6 +20,10 @@ public class Programa {
             System.out.println("Employee #" + (i+1));
             System.out.print("ID: ");
             int id = scanner.nextInt();
+            while (hasId(list,id)){
+                System.out.println("ID alredy exist! Please try again:");
+                id = scanner.nextInt();
+            }
             System.out.print("Name: ");
             scanner.nextLine();
             String name = scanner.nextLine();
@@ -31,14 +35,21 @@ public class Programa {
         }
         System.out.print("Enter with the employee ID that will increase the salary:");
         int idemployee = scanner.nextInt();
-        Integer position = positionId(list, idemployee);
-        if (position == null){
+
+        Identidades identidades = list.stream()
+                .filter(x -> x.getId() == idemployee)
+                .findFirst()
+                .orElse(null);
+
+        //Integer position = positionId(list, idemployee);
+
+        if (identidades == null){
             System.out.println("This id does not exist!");
         }
         else {
             System.out.print("Enter with the percentage:");
             double percentage = scanner.nextDouble();
-            list.get(position).setPercentage(percentage);
+            identidades.setPercentage(percentage);
         }
 
         System.out.println("Employees list:");
@@ -57,5 +68,11 @@ public class Programa {
         }
         return null;
     }
-
+    public static boolean hasId(List<Identidades> list, int id) {
+        Identidades emp = list.stream()
+                .filter(x -> x.getId() == id)
+                .findFirst()
+                .orElse(null);
+                return emp != null;
+    }
 }
