@@ -1,0 +1,21 @@
+package apps;
+
+import trabalho.Factory;
+
+import javax.swing.JFrame;
+
+public class Base
+{
+
+    public static void main( String args[] )
+    {
+        JFrame frame = new JFrame( "Using colors" );
+        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+
+        Factory gJPanel = new Factory(); 
+        frame.add( gJPanel );
+        frame.setSize( 800, 600 ); //800 por 600
+        frame.setVisible( true ); 
+
+    }
+} 
