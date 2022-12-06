@@ -1,0 +1,128 @@
+package trabalho;
+
+
+import java.awt.*;
+import javax.swing.JPanel;
+
+public class Factory extends JPanel {
+    private int xCentral = 20, yCentral = 460;
+    private double escala = 50;
+
+    public int getXint(double x) {
+        return (int) (xCentral + (x * escala));
+    }
+
+    public int getYint(double y) {
+        return (int) (yCentral - (y * escala));
+    }
+
+    public void paintComponent(Graphics g) {
+
+        int[] setandox = {50, 100, 150, 125, 150, 100, 50, 75};
+        int[] setandoY = {100, 50, 100, 150, 200, 150, 200, 150};
+
+        int[] setandox2 = {50, 100, 150, 125, 150, 100, 50, 75};
+        int[] setandoY2 = {100, 50, 100, 150, 200, 150, 200, 150};
+
+        /*int[] setandox = {-50, -100, -150, -125, -150, -100, -50, -75};
+        int[] setandoY = {-100, -50, -100, -150, -200, -150, -200, -150};
+
+        int[] setandox2 = {-50, -100, -150, -125, -150, -100, -50, -75};
+        int[] setandoY2 = {-100, -50, -100, -150, -200, -150, -200, -150};*/
+
+        super.paintComponent(g);
+
+        this.setBackground(Color.WHITE);
+
+        xCentral = this.getWidth() / 2;
+        yCentral = this.getHeight() / 2;
+
+        for (int i = 0; i < setandox.length; i++) {
+            setandox[i] = setandox[i] + xCentral;
+            setandoY[i] = setandoY[i] + yCentral;
+        }
+
+        g.setColor(Color.BLACK);
+        g.drawLine(0, yCentral, this.getWidth(), yCentral
+        );
+        g.drawLine(xCentral, 0, xCentral, this.getHeight());
+
+        for (double i = 0; i < ((this.getWidth() / 2) / escala); i++)
+            g.drawLine(getXint(i), getYint(0.05), getXint(i), getYint(-0.05));
+        for (double i = 0; i > -((this.getWidth() / 2) / escala); i--)
+            g.drawLine(getXint(i), getYint(0.05), getXint(i), getYint(-0.05));
+        for (double i = 0; i < ((this.getWidth() / 2) / escala); i++)
+            g.drawLine(getXint(0.05), getYint(i), getXint(-0.05), getYint(i));
+        for (double i = 0; i > -((this.getWidth() / 2) / escala); i--)
+            g.drawLine(getXint(0.05), getYint(i), getXint(-0.05), getYint(i));
+
+        g.setColor(Color.BLUE);
+
+        for (int i = 0; i < ((this.getWidth() / 2) / escala); i++)
+            g.drawString("" + i, getXint(i - 0.1), getYint(-0.2));
+        for (int i = 1; i < ((this.getWidth() / 2) / escala); i++)
+            g.drawString("" + i, getXint(-0.2), getYint(i));
+        for (int i = -1; i > -((this.getWidth() / 2) / escala); i--)
+            g.drawString("" + i, getXint(i - 0.1), getYint(-0.2));
+        for (int i = -1; i > -((this.getWidth() / 2) / escala); i--)
+            g.drawString("" + i, getXint(-0.2), getYint(i));
+
+        //poligono controle
+        g.setColor(Color.black);
+        g.drawPolygon(setandox, setandoY, setandox.length);
+        g.setColor(Color.green);
+
+        /*Polygon polygon = new Polygon();
+
+        for (int i = 0; i < setandox.length; i++) {
+            polygon.addPoint(getXint(setandox[i]), getYint(setandoY[i]));
+        }
+        g.setColor(Color.CYAN);
+        g.drawPolygon(polygon);
+        polygon.reset();*/
+
+       for (int i = 0; i < setandox.length; i++) {
+           setandox[i] = (int) Math.abs(((setandox[i] * Math.cos(60)) - (setandoY[i] * Math.sin(60))));
+           setandoY[i] = (int) Math.abs(((setandoY[i] * Math.cos(60)) + (setandox[i] * Math.sin(60))));
+       }
+
+        //Translação
+        for (int i = 0; i < setandox.length; i++) {
+            setandox[i] += (3 * escala);
+            setandoY[i] -= (2 * escala);
+        }
+
+        //g.drawPolygon(setandox, setandoY, setandox.length);
+
+        // Escala
+        for (int i = 0; i < setandox.length; i++) {
+            setandox[i] *= 1.2;
+            setandoY[i] *= 1.2;
+        }
+
+        g.drawPolygon(setandox, setandoY, setandox.length);
+        g.setColor(Color.blue);
+        for (int i = 0; i < setandox2.length; i++) {
+            setandox2[i] *= 1.2;
+            setandoY2[i] *= 1.2;
+        }
+
+        for (int i = 0; i < setandox2.length; i++) {
+            setandox2[i] = (int) Math.abs(((setandox2[i] * Math.cos(60)) - (setandoY2[i] * Math.sin(60))));
+            setandoY2[i] = (int) Math.abs(((setandoY2[i] * Math.cos(60)) + (setandox2[i] * Math.sin(60))));
+        }
+
+        for (int i = 0; i < setandox2.length; i++) {
+            setandox2[i] += (3 * escala);
+            setandoY2[i] -= (2 * escala);
+        }
+
+        for (int i = 0; i < setandox2.length; i++) {
+            setandox2[i] = setandox2[i] + xCentral;
+            setandoY2[i] = setandoY2[i] + yCentral;
+        }
+
+       g.drawPolygon(setandox2, setandoY2, setandox2.length);
+
+    }
+}
